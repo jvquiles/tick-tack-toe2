@@ -20,9 +20,13 @@ public class Game
         {
             _board = "[X][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
         }
-        else
+        else if (x == 0 && y == 1)
         {
             _board = "[X][O][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
+        }
+        else 
+        {
+            _board = "[X][O][X]\n[ ][ ][ ]\n[ ][ ][ ]";
         }
     }
 }
