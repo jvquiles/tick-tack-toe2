@@ -35,6 +35,7 @@ namespace TickTackToe2.Tests
         public void PlaySecondMoveOnCenterLeft()
         {
             var game = new Game();
+            game.Play(0, 0);
             game.Play(0, 1);
 
             var board = game.PrintBoard();
@@ -46,6 +47,8 @@ namespace TickTackToe2.Tests
         public void PlayThirdMoveOnCenterRight()
         {
             var game = new Game();
+            game.Play(0, 0);
+            game.Play(0, 1);
             game.Play(0, 2);
 
             var board = game.PrintBoard();
