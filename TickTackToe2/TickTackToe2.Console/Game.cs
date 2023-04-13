@@ -16,6 +16,13 @@ public class Game
 
     public void Play(int x, int y)
     {
-        _board = "[X][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
+        if (x == 0 && y == 0)
+        {
+            _board = "[X][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
+        }
+        else
+        {
+            _board = "[X][O][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
+        }
     }
 }
