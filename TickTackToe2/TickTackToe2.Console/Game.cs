@@ -2,12 +2,20 @@ namespace TickTackToe2.Console;
 
 public class Game
 {
-    public string PrintBoard()
+    private string _board;
+
+    public Game()
     {
-        return "[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
+        _board = "[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
     }
 
-    public void Play(int i, int i1)
+    public string PrintBoard()
     {
+        return _board;
+    }
+
+    public void Play(int x, int y)
+    {
+        _board = "[X][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
     }
 }
