@@ -6,4 +6,8 @@ public class Game
     {
         return "[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
     }
+
+    public void Play(int i, int i1)
+    {
+    }
 }
