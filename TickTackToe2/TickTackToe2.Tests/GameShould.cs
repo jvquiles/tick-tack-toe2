@@ -1,3 +1,6 @@
+using FluentAssertions;
+using TickTackToe2.Console;
+
 namespace TickTackToe2.Tests
 {
     public class GameShould
@@ -8,9 +11,13 @@ namespace TickTackToe2.Tests
         }
 
         [Test]
-        public void Test1()
+        public void ShowInitialBoard()
         {
-            Assert.Pass();
+            var game = new Game();
+
+            var board = game.PrintBoard();
+
+            board.Should().Be("[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]");
         }
     }
 }
