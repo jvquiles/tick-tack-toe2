@@ -55,6 +55,5 @@ namespace TickTackToe2.Tests
 
             board.Should().Be("[X][O][X]\n[ ][ ][ ]\n[ ][ ][ ]");
         }
-        }
     }
 }

@@ -2,25 +2,35 @@ namespace TickTackToe2.Console;
 
 public class Game
 {
-    private readonly string[,] _board;
-    private string _currentToken;
+    private readonly Token[,] _board;
+    private Token _currentToken;
 
     public Game()
     {
-        _board = new [,] { {" ", " ", " "}, {" ", " ", " "}, {" ", " ", " "} };
-        _currentToken = "X";
+        _board = new [,] { {Token.Empty, Token.Empty, Token.Empty }, {Token.Empty, Token.Empty, Token.Empty}, {Token.Empty, Token.Empty, Token.Empty} };
+        _currentToken = Token.X;
     }
 
     public string PrintBoard()
     {
-        return $"[{_board[0,0]}][{_board[0,1]}][{_board[0,2]}]\n" +
-               $"[{_board[1,0]}][{_board[1,1]}][{_board[1,2]}]\n" +
-               $"[{_board[2,0]}][{_board[2,1]}][{_board[2,2]}]";
+        return $"[{FormatToken(_board[0, 0])}][{FormatToken(_board[0,1])}][{FormatToken(_board[0,2])}]\n" +
+               $"[{FormatToken(_board[1,0])}][{FormatToken(_board[1,1])}][{FormatToken(_board[1,2])}]\n" +
+               $"[{FormatToken(_board[2,0])}][{FormatToken(_board[2,1])}][{FormatToken(_board[2,2])}]";
+    }
+
+    private string FormatToken(Token token)
+    {
+        return token switch
+        {
+            Token.O => "O",
+            Token.X => "X",
+            _ => " "
+        };
     }
 
     public void Play(int x, int y)
     {
         _board[x, y] = _currentToken;
-        _currentToken = _currentToken == "X" ? "O" : "X";
+        _currentToken =_currentToken != Token.X ? Token.X : Token.O;
     }
 }
