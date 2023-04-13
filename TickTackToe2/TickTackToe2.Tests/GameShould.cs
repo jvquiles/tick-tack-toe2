@@ -41,5 +41,16 @@ namespace TickTackToe2.Tests
 
             board.Should().Be("[X][O][ ]\n[ ][ ][ ]\n[ ][ ][ ]");
         }
+
+        [Test]
+        public void PlayThirdMoveOnCenterRight()
+        {
+            var game = new Game();
+            game.Play(0, 2);
+
+            var board = game.PrintBoard();
+
+            board.Should().Be("[X][O][X]\n[ ][ ][ ]\n[ ][ ][ ]");
+        }
     }
 }
