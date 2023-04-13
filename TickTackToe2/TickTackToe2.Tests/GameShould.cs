@@ -32,7 +32,7 @@ namespace TickTackToe2.Tests
         }
 
         [Test]
-        public void PlaySecondMoveOnCenterLeft()
+        public void PlaySecondMoveOnTopCenter()
         {
             var game = new Game();
             game.Play(0, 0);
@@ -44,7 +44,7 @@ namespace TickTackToe2.Tests
         }
 
         [Test]
-        public void PlayThirdMoveOnCenterRight()
+        public void PlayThirdMoveOnTopRight()
         {
             var game = new Game();
             game.Play(0, 0);
@@ -54,6 +54,7 @@ namespace TickTackToe2.Tests
             var board = game.PrintBoard();
 
             board.Should().Be("[X][O][X]\n[ ][ ][ ]\n[ ][ ][ ]");
+        }
         }
     }
 }
