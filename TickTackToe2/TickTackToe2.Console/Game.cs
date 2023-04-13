@@ -4,6 +4,6 @@ public class Game
 {
     public string PrintBoard()
     {
-        return string.Empty;
+        return "[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
     }
 }
