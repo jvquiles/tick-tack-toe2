@@ -12,5 +12,5 @@ do
     Console.Write("Enter coordinates for Y: ");
     var coordinateY = Convert.ToInt32(Console.ReadLine());
 
-    game.Play(coordinateX, coordinateY);
+    game.Play(new Coordinates(coordinateX, coordinateY));
 } while (true);

@@ -7,13 +7,18 @@ public class Game
 
     public Game()
     {
-        _board = new [,] { {Token.Empty, Token.Empty, Token.Empty }, {Token.Empty, Token.Empty, Token.Empty}, {Token.Empty, Token.Empty, Token.Empty} };
+        _board = new [,]
+        {
+            {Token.Empty, Token.Empty, Token.Empty},
+            {Token.Empty, Token.Empty, Token.Empty},
+            {Token.Empty, Token.Empty, Token.Empty}
+        };
         _currentToken = Token.X;
     }
 
     public string PrintBoard()
     {
-        return $"[{FormatToken(_board[0, 0])}][{FormatToken(_board[0,1])}][{FormatToken(_board[0,2])}]\n" +
+        return $"[{FormatToken(_board[0,0])}][{FormatToken(_board[0,1])}][{FormatToken(_board[0,2])}]\n" +
                $"[{FormatToken(_board[1,0])}][{FormatToken(_board[1,1])}][{FormatToken(_board[1,2])}]\n" +
                $"[{FormatToken(_board[2,0])}][{FormatToken(_board[2,1])}][{FormatToken(_board[2,2])}]";
     }
@@ -28,9 +33,9 @@ public class Game
         };
     }
 
-    public void Play(int x, int y)
+    public void Play(Coordinates coordinates)
     {
-        _board[x, y] = _currentToken;
+        _board[coordinates.X, coordinates.Y] = _currentToken;
         _currentToken =_currentToken != Token.X ? Token.X : Token.O;
     }
 }
