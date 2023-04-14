@@ -46,6 +46,11 @@ public class Game
 
     public string GetStatus()
     {
+        if (_board[0, 0] == Token.X && _board[0, 1] == Token.X && _board[0, 2] == Token.X)
+        {
+            return "Player X wins";
+        }
+
         return string.Empty;
     }
 }
