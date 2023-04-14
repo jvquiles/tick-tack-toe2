@@ -66,5 +66,20 @@ namespace TickTackToe2.Tests
 
             failPlay.Should().Throw<InvalidOperationException>();
         }
+
+        [Test]
+        public void LetWinPlayerXByFirstRow()
+        {
+            var game = new Game();
+            game.Play(new Coordinates(0, 0));
+            game.Play(new Coordinates(1, 0));
+            game.Play(new Coordinates(0, 1));
+            game.Play(new Coordinates(1, 1));
+            game.Play(new Coordinates(0, 2));
+
+            var status = game.GetStatus();
+
+            status.Should().Be("Player X wins");
+        }
     }
 }

@@ -43,4 +43,9 @@ public class Game
         _board[coordinates.X, coordinates.Y] = _currentToken;
         _currentToken =_currentToken != Token.X ? Token.X : Token.O;
     }
+
+    public string GetStatus()
+    {
+        return string.Empty;
+    }
 }
