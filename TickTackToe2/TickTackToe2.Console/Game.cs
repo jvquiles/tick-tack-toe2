@@ -35,6 +35,11 @@ public class Game
 
     public void Play(Coordinates coordinates)
     {
+        if (_board[coordinates.X, coordinates.Y] != Token.Empty)
+        {
+            throw new InvalidOperationException();
+        }
+
         _board[coordinates.X, coordinates.Y] = _currentToken;
         _currentToken =_currentToken != Token.X ? Token.X : Token.O;
     }
