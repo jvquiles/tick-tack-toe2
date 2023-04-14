@@ -96,5 +96,20 @@ namespace TickTackToe2.Tests
 
             status.Should().Be("Player X wins");
         }
+
+        [Test]
+        public void LetWinPlayerXByThirdRow()
+        {
+            var game = new Game();
+            game.Play(new Coordinates(2, 0));
+            game.Play(new Coordinates(0, 0));
+            game.Play(new Coordinates(2, 1));
+            game.Play(new Coordinates(0, 1));
+            game.Play(new Coordinates(2, 2));
+
+            var status = game.GetStatus();
+
+            status.Should().Be("Player X wins");
+        }
     }
 }
