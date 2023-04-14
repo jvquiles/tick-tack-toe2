@@ -55,5 +55,16 @@ namespace TickTackToe2.Tests
 
             board.Should().Be("[X][O][X]\n[ ][ ][ ]\n[ ][ ][ ]");
         }
+
+        [Test]
+        public void FailWhenPlayingOnTopLeftTwice()
+        {
+            var game = new Game();
+            game.Play(new Coordinates(0, 0));
+
+            var failPlay = () => game.Play(new Coordinates(0, 0));
+
+            failPlay.Should().Throw<InvalidOperationException>();
+        }
     }
 }
