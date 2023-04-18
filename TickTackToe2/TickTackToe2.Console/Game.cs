@@ -61,6 +61,11 @@ public class Game
             return "Player X wins";
         }
 
+        if (_board[0, 2] == Token.X && _board[1, 2] == Token.X && _board[2, 2] == Token.X)
+        {
+            return "Player X wins";
+        }
+
         return string.Empty;
     }
 
