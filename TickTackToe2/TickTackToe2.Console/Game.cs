@@ -47,17 +47,23 @@ public class Game
     public string GetStatus()
     {
         if (IsRowCompletedByX(0) || IsRowCompletedByX(1) || IsRowCompletedByX(2) 
-            || IsColumnCompletedByX(0) || IsColumnCompletedByX(1) || IsColumnCompletedByX(2))
-        {
-            return "Player X wins";
-        }
-
-        if (_board[0, 0] == Token.X && _board[1, 1] == Token.X && _board[2, 2] == Token.X)
+            || IsColumnCompletedByX(0) || IsColumnCompletedByX(1) || IsColumnCompletedByX(2)
+            || IsFirstDiagonalCompletedByX() || IsSecondDiagonalCompletedByX())
         {
             return "Player X wins";
         }
 
         return string.Empty;
+    }
+
+    private bool IsSecondDiagonalCompletedByX()
+    {
+        return _board[0, 2] == Token.X && _board[1, 1] == Token.X && _board[2, 0] == Token.X;
+    }
+
+    private bool IsFirstDiagonalCompletedByX()
+    {
+        return _board[0, 0] == Token.X && _board[1, 1] == Token.X && _board[2, 2] == Token.X;
     }
 
     private bool IsColumnCompletedByX(int column)
