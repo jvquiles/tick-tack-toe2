@@ -46,21 +46,36 @@ public class Game
 
     public string GetStatus()
     {
-        if (_board[0, 0] == Token.X && _board[0, 1] == Token.X && _board[0, 2] == Token.X)
+        if (IsFirstRowCompletedByX())
         {
             return "Player X wins";
         }
 
-        if (_board[1, 0] == Token.X && _board[1, 1] == Token.X && _board[1, 2] == Token.X)
+        if (IsSecondRowCompletedByX())
         {
             return "Player X wins";
         }
 
-        if (_board[2, 0] == Token.X && _board[2, 1] == Token.X && _board[2, 2] == Token.X)
+        if (IsThirdRowCompletedByX())
         {
             return "Player X wins";
         }
 
         return string.Empty;
+    }
+
+    private bool IsThirdRowCompletedByX()
+    {
+        return _board[2, 0] == Token.X && _board[2, 1] == Token.X && _board[2, 2] == Token.X;
+    }
+
+    private bool IsSecondRowCompletedByX()
+    {
+        return _board[1, 0] == Token.X && _board[1, 1] == Token.X && _board[1, 2] == Token.X;
+    }
+
+    private bool IsFirstRowCompletedByX()
+    {
+        return _board[0, 0] == Token.X && _board[0, 1] == Token.X && _board[0, 2] == Token.X;
     }
 }
