@@ -46,33 +46,43 @@ public class Game
 
     public string GetStatus()
     {
-        if (IsRowCompletedByX(0) || IsRowCompletedByX(1) || IsRowCompletedByX(2) 
-            || IsColumnCompletedByX(0) || IsColumnCompletedByX(1) || IsColumnCompletedByX(2)
-            || IsFirstDiagonalCompletedByX() || IsSecondDiagonalCompletedByX())
+        if (HasWon(Token.X))
         {
             return "Player X wins";
+        }
+
+        if (HasWon(Token.O))
+        {
+            return "Player O wins";
         }
 
         return string.Empty;
     }
 
-    private bool IsSecondDiagonalCompletedByX()
+    private bool HasWon(Token token)
     {
-        return _board[0, 2] == Token.X && _board[1, 1] == Token.X && _board[2, 0] == Token.X;
+        return IsRowCompleted(token, 0) || IsRowCompleted(token, 1) || IsRowCompleted(token, 2) 
+               || IsColumnCompleted(token, 0) || IsColumnCompleted(token, 1) || IsColumnCompleted(token, 2)
+               || IsFirstDiagonalCompleted(token) || IsSecondDiagonalCompleted(token);
     }
 
-    private bool IsFirstDiagonalCompletedByX()
+    private bool IsSecondDiagonalCompleted(Token token)
     {
-        return _board[0, 0] == Token.X && _board[1, 1] == Token.X && _board[2, 2] == Token.X;
+        return _board[0, 2] == token && _board[1, 1] == token && _board[2, 0] == token;
     }
 
-    private bool IsColumnCompletedByX(int column)
+    private bool IsFirstDiagonalCompleted(Token token)
     {
-        return _board[0, column] == Token.X && _board[1, column] == Token.X && _board[2, column] == Token.X;
+        return _board[0, 0] == token && _board[1, 1] == token && _board[2, 2] == token;
     }
 
-    private bool IsRowCompletedByX(int row)
+    private bool IsColumnCompleted(Token token, int column)
     {
-        return _board[row, 0] == Token.X && _board[row, 1] == Token.X && _board[row, 2] == Token.X;
+        return _board[0, column] == token && _board[1, column] == token && _board[2, column] == token;
+    }
+
+    private bool IsRowCompleted(Token token, int row)
+    {
+        return _board[row, 0] == token && _board[row, 1] == token && _board[row, 2] == token;
     }
 }
