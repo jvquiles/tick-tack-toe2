@@ -81,10 +81,3 @@ public class Game
         return _board.Get(new Coordinates(row, 0)) == token && _board.Get(new Coordinates(row, 1)) == token && _board.Get(new Coordinates(row, 2)) == token;
     }
 }
-
-public enum Status
-{
-    PlayerXWins,
-    PlayerOWins,
-    NotFinished
-}
