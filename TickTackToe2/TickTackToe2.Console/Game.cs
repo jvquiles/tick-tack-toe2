@@ -50,6 +50,13 @@ public class Game
         {
             return Status.PlayerOWins;
         }
+
+        if (_board.Get(new Coordinates(0, 0)) != Token.Empty && _board.Get(new Coordinates(0, 1)) != Token.Empty && _board.Get(new Coordinates(0, 2)) != Token.Empty
+            && _board.Get(new Coordinates(1, 0)) != Token.Empty && _board.Get(new Coordinates(1, 1)) != Token.Empty && _board.Get(new Coordinates(1, 2)) != Token.Empty
+            && _board.Get(new Coordinates(2, 0)) != Token.Empty && _board.Get(new Coordinates(2, 1)) != Token.Empty && _board.Get(new Coordinates(2, 2)) != Token.Empty)
+        {
+            return Status.NoWinner;
+        }
         
         return Status.NotFinished;
     }
