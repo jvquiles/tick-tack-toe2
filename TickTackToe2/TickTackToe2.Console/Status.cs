@@ -4,5 +4,6 @@ public enum Status
 {
     PlayerXWins,
     PlayerOWins,
-    NotFinished
+    NotFinished,
+    NoWinner
 }

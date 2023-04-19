@@ -202,5 +202,24 @@ namespace TickTackToe2.Tests
 
             status.Should().Be(Status.PlayerOWins);
         }
+
+        [Test]
+        public void LetFinishWithoutWinner()
+        {
+            var game = new Game();
+            game.Play(new Coordinates(1, 1));
+            game.Play(new Coordinates(0, 0));
+            game.Play(new Coordinates(2, 1));
+            game.Play(new Coordinates(0, 1));
+            game.Play(new Coordinates(0, 2));
+            game.Play(new Coordinates(2, 0));
+            game.Play(new Coordinates(2, 2));
+            game.Play(new Coordinates(1, 2));
+            game.Play(new Coordinates(1, 0));
+
+            var status = game.GetStatus();
+
+            status.Should().Be(Status.NoWinner);
+        }
     }
 }
