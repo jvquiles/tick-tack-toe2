@@ -51,14 +51,19 @@ public class Game
             return Status.PlayerOWins;
         }
 
-        if (_board.Get(new Coordinates(0, 0)) != Token.Empty && _board.Get(new Coordinates(0, 1)) != Token.Empty && _board.Get(new Coordinates(0, 2)) != Token.Empty
-            && _board.Get(new Coordinates(1, 0)) != Token.Empty && _board.Get(new Coordinates(1, 1)) != Token.Empty && _board.Get(new Coordinates(1, 2)) != Token.Empty
-            && _board.Get(new Coordinates(2, 0)) != Token.Empty && _board.Get(new Coordinates(2, 1)) != Token.Empty && _board.Get(new Coordinates(2, 2)) != Token.Empty)
+        if (IsBoardFullyPlayed())
         {
             return Status.NoWinner;
         }
         
         return Status.NotFinished;
+    }
+
+    private bool IsBoardFullyPlayed()
+    {
+        return _board.Get(new Coordinates(0, 0)) != Token.Empty && _board.Get(new Coordinates(0, 1)) != Token.Empty && _board.Get(new Coordinates(0, 2)) != Token.Empty
+               && _board.Get(new Coordinates(1, 0)) != Token.Empty && _board.Get(new Coordinates(1, 1)) != Token.Empty && _board.Get(new Coordinates(1, 2)) != Token.Empty
+               && _board.Get(new Coordinates(2, 0)) != Token.Empty && _board.Get(new Coordinates(2, 1)) != Token.Empty && _board.Get(new Coordinates(2, 2)) != Token.Empty;
     }
 
     private bool HasWon(Token token)
