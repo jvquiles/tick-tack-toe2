@@ -79,7 +79,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -94,7 +94,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -109,7 +109,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -124,7 +124,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -139,7 +139,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -154,7 +154,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -169,7 +169,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -184,7 +184,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player X wins");
+            status.Should().Be(Status.PlayerXWins);
         }
 
         [Test]
@@ -200,7 +200,7 @@ namespace TickTackToe2.Tests
 
             var status = game.GetStatus();
 
-            status.Should().Be("Player O wins");
+            status.Should().Be(Status.PlayerOWins);
         }
     }
 }

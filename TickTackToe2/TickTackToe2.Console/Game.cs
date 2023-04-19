@@ -44,19 +44,19 @@ public class Game
         _currentToken =_currentToken != Token.X ? Token.X : Token.O;
     }
 
-    public string GetStatus()
+    public Status GetStatus()
     {
         if (HasWon(Token.X))
         {
-            return "Player X wins";
+            return Status.PlayerXWins;
         }
 
         if (HasWon(Token.O))
         {
-            return "Player O wins";
+            return Status.PlayerOWins;
         }
-
-        return string.Empty;
+        
+        return Status.NotFinised;
     }
 
     private bool HasWon(Token token)
@@ -85,4 +85,11 @@ public class Game
     {
         return _board[row, 0] == token && _board[row, 1] == token && _board[row, 2] == token;
     }
+}
+
+public enum Status
+{
+    PlayerXWins,
+    PlayerOWins,
+    NotFinised
 }
