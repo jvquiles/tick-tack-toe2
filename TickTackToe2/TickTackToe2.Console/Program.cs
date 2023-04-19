@@ -21,7 +21,7 @@ do
         Console.WriteLine("The move cannot be performed due to an error. Try again.");
         Console.ReadLine();
     }
-} while (game.GetStatus() == Status.NotFinised);
+} while (game.GetStatus() == Status.NotFinished);
 
 
 Console.Clear();

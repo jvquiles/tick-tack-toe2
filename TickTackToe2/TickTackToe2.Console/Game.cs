@@ -56,7 +56,7 @@ public class Game
             return Status.PlayerOWins;
         }
         
-        return Status.NotFinised;
+        return Status.NotFinished;
     }
 
     private bool HasWon(Token token)
@@ -91,5 +91,5 @@ public enum Status
 {
     PlayerXWins,
     PlayerOWins,
-    NotFinised
+    NotFinished
 }
