@@ -2,25 +2,20 @@ namespace TickTackToe2.Console;
 
 public class Game
 {
-    private readonly Token[,] _board;
     private Token _currentToken;
+    private readonly Board _board;
 
     public Game()
     {
-        _board = new [,]
-        {
-            {Token.Empty, Token.Empty, Token.Empty},
-            {Token.Empty, Token.Empty, Token.Empty},
-            {Token.Empty, Token.Empty, Token.Empty}
-        };
         _currentToken = Token.X;
+        _board = new Board();
     }
 
     public string PrintBoard()
     {
-        return $"[{FormatToken(_board[0,0])}][{FormatToken(_board[0,1])}][{FormatToken(_board[0,2])}]\n" +
-               $"[{FormatToken(_board[1,0])}][{FormatToken(_board[1,1])}][{FormatToken(_board[1,2])}]\n" +
-               $"[{FormatToken(_board[2,0])}][{FormatToken(_board[2,1])}][{FormatToken(_board[2,2])}]";
+        return $"[{FormatToken(_board.Get(new Coordinates(0,0)))}][{FormatToken(_board.Get(new Coordinates(0,1)))}][{FormatToken(_board.Get(new Coordinates(0,2)))}]\n" +
+               $"[{FormatToken(_board.Get(new Coordinates(1,0)))}][{FormatToken(_board.Get(new Coordinates(1,1)))}][{FormatToken(_board.Get(new Coordinates(1,2)))}]\n" +
+               $"[{FormatToken(_board.Get(new Coordinates(2,0)))}][{FormatToken(_board.Get(new Coordinates(2,1)))}][{FormatToken(_board.Get(new Coordinates(2,2)))}]";
     }
 
     private string FormatToken(Token token)
@@ -35,12 +30,12 @@ public class Game
 
     public void Play(Coordinates coordinates)
     {
-        if (_board[coordinates.X, coordinates.Y] != Token.Empty)
+        if (_board.Get(coordinates) != Token.Empty)
         {
             throw new InvalidOperationException();
         }
 
-        _board[coordinates.X, coordinates.Y] = _currentToken;
+        _board.Set(coordinates, _currentToken);
         _currentToken =_currentToken != Token.X ? Token.X : Token.O;
     }
 
@@ -68,22 +63,22 @@ public class Game
 
     private bool IsSecondDiagonalCompleted(Token token)
     {
-        return _board[0, 2] == token && _board[1, 1] == token && _board[2, 0] == token;
+        return _board.Get(new Coordinates(0, 2)) == token && _board.Get(new Coordinates(1, 1)) == token && _board.Get(new Coordinates(2, 0)) == token;
     }
 
     private bool IsFirstDiagonalCompleted(Token token)
     {
-        return _board[0, 0] == token && _board[1, 1] == token && _board[2, 2] == token;
+        return _board.Get(new Coordinates(0, 0)) == token && _board.Get(new Coordinates(1, 1)) == token && _board.Get(new Coordinates(2, 2)) == token;
     }
 
     private bool IsColumnCompleted(Token token, int column)
     {
-        return _board[0, column] == token && _board[1, column] == token && _board[2, column] == token;
+        return _board.Get(new Coordinates(0, column)) == token && _board.Get(new Coordinates(1, column)) == token && _board.Get(new Coordinates(2, column)) == token;
     }
 
     private bool IsRowCompleted(Token token, int row)
     {
-        return _board[row, 0] == token && _board[row, 1] == token && _board[row, 2] == token;
+        return _board.Get(new Coordinates(row, 0)) == token && _board.Get(new Coordinates(row, 1)) == token && _board.Get(new Coordinates(row, 2)) == token;
     }
 }
 
